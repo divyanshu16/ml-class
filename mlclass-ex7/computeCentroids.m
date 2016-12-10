@@ -25,17 +25,8 @@ centroids = zeros(K, n);
 %
 % Note: You can use a for-loop over the centroids to compute this.
 %
-for c=1:K,
-  count = 0;
-  for i=1:m,
-    if idx(i) == c,
-      centroids(c,:) = centroids(c,:) + X(i,:);
-      count = count + 1;
-    end
-  end
-  if count > 0,
-    centroids(c,:) = centroids(c,:) ./ count;
-  end
+for i=1: K
+    centroids(i, :)= mean(  X(idx==i, :) );
 end
   
 
